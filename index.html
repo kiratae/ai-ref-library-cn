@@ -1,60 +1,60 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 作图素材库 · 中文版（脸 / 姿势 / 服装）</title>
-<link rel="stylesheet" href="assets/style.css?v=29">
+<title>AI Reference Library · English (Faces / Poses / Outfits)</title>
+<link rel="stylesheet" href="assets/style.css?v=30">
 </head>
 <body>
 <header><div class="wrap">
   <div class="head-row">
-    <h1>AI 作图素材库<span>脸 1,499 · 姿势 288 个 / 1,439 张 · 服装 1,407 套</span></h1>
+    <h1>AI Reference Library<span>Faces 1,499 · Poses 288 / 1,439 images · Outfits 1,407 sets</span></h1>
     <div class="head-actions">
       <div class="tips-hover" id="tipsHover">
-        <button class="tips-trigger" id="tipsTrigger" aria-expanded="false" aria-controls="tipsPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5 8.5 4.5 6 4.5H3v13h3c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2h3v-13h-3c-2.5 0-4.5.5-6 2Z"/><path d="M12 6.5v13"/></svg>用法</button>
-        <div class="tips-panel" id="tipsPanel" role="dialog" aria-label="使用说明">
+        <button class="tips-trigger" id="tipsTrigger" aria-expanded="false" aria-controls="tipsPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.5 5 8.5 4.5 6 4.5H3v13h3c2.5 0 4.5.5 6 2 1.5-1.5 3.5-2 6-2h3v-13h-3c-2.5 0-4.5.5-6 2Z"/><path d="M12 6.5v13"/></svg>How to use</button>
+        <div class="tips-panel" id="tipsPanel" role="dialog" aria-label="Usage guide">
           <ul>
-            <li><b>流程</b>：脸库里挑一张定住「她是谁」→ 姿势库挑动作 → 服装库挑这套衣服 → 把三张参考图 + 一句指令交给模型。</li>
-            <li><b>懒得挑</b>：默认打开的就是「随机组合」：一次抽齐脸 / 服装 / 姿势，自动生成中英文提示词（含三张图的源站链接），复制就能交给别的 Agent。</li>
-            <li><b>指令示例</b>：把图1中人物的姿势改成图2的姿势，衣服换成图3这套；保持脸、发型、体型、光线和画风不变。弹窗里有「复制作图指令」，会自动带上编号和分类。</li>
-            <li><b>为什么给图不给文字</b>：姿势和服装用文字描述必然飘（同一句话每次出来的褶数、长度、肢体角度都不一样），参考图才是稳定的。</li>
-            <li><b>本仓库只含缩略图</b>：点「下载原图」会跳转到作者源站的对应文件（新标签打开后另存即可）。请勿把原图再打包分发。</li>
+            <li><b>Workflow</b>: pick a face to lock in "who she is" → pick a pose from the Poses library → pick an outfit from the Outfits library → hand the three reference images plus one instruction to the model.</li>
+            <li><b>Too lazy to pick?</b> The default view is "Random combo": it draws a face / outfit / pose in one go and generates a ready-made prompt (including source links to the three images) that you can copy and hand to another agent.</li>
+            <li><b>Example instruction</b>: change the pose of the character in image 1 to the pose in image 2, and swap the clothes for the outfit in image 3; keep the face, hairstyle, body type, lighting and art style unchanged. The modal has a "Copy prompt" button that includes the ID and category automatically.</li>
+            <li><b>Why images instead of text</b>: describing poses and outfits in words always drifts (the same sentence gives a different number of folds, length and limb angles each time); reference images stay stable.</li>
+            <li><b>This repo contains thumbnails only</b>: "Download original" jumps to the matching file on the author's source site (open it in a new tab and save it). Please do not repackage and redistribute the originals.</li>
           </ul>
         </div>
       </div>
       <div class="pantop" id="panHover">
-        <button class="pantop-trigger" id="panTrigger" aria-expanded="false" aria-controls="panPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>整库下载</button>
-        <div class="pantop-panel" id="panPanel" role="dialog" aria-label="整库原图下载">
-          <div class="pantop-hd">整库原图（网盘）</div>
+        <button class="pantop-trigger" id="panTrigger" aria-expanded="false" aria-controls="panPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>Full download</button>
+        <div class="pantop-panel" id="panPanel" role="dialog" aria-label="Full-library original download">
+          <div class="pantop-hd">Full originals (cloud drive)</div>
           <div id="panRows"></div>
-          <p class="pantop-note">整库打包，适合批量取图；只要单张请点开条目用「下载原图」。</p>
+          <p class="pantop-note">Whole-library bundles, handy for bulk downloads; for a single image, open the item and use "Download original".</p>
         </div>
       </div>
       <div class="grat" id="gratHover">
-        <button class="grat-trigger" id="gratTrigger" aria-expanded="false" aria-controls="gratPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 5c0 .8-.8 1.2-.8 2M12 5c0 .8-.8 1.2-.8 2"/></svg>赞赏</button>
-        <div class="grat-panel" id="gratPanel" role="dialog" aria-label="赞赏支持">
-          <a class="grat-qr" href="assets/tip.jpg" target="_blank" rel="noopener" title="点开看完整赞赏卡">
-            <img src="assets/tip-qr.jpg" alt="赞赏码" width="188" height="188" loading="lazy">
+        <button class="grat-trigger" id="gratTrigger" aria-expanded="false" aria-controls="gratPanel"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 5c0 .8-.8 1.2-.8 2M12 5c0 .8-.8 1.2-.8 2"/></svg>Tip</button>
+        <div class="grat-panel" id="gratPanel" role="dialog" aria-label="Support the project">
+          <a class="grat-qr" href="assets/tip.jpg" target="_blank" rel="noopener" title="Open the full tip card">
+            <img src="assets/tip-qr.jpg" alt="Tip QR code" width="188" height="188" loading="lazy">
           </a>
           <div class="grat-txt">
-            <b>微信扫码赞赏</b>
-            <span>如果这个库帮你省了时间，可以请我喝杯咖啡</span>
-            <em>完全自愿 · 不影响任何功能</em>
+            <b>Scan with WeChat to tip</b>
+            <span>If this library saved you time, you can buy me a coffee</span>
+            <em>Entirely voluntary · no feature depends on it</em>
           </div>
         </div>
       </div>
-      <a class="sister" id="sisterLink" href="https://sleepyzone.online/char-db-cn/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="m21 15-5-5L5 20"/></svg>二次元换装库<svg class="ico ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+      <a class="sister" id="sisterLink" href="https://sleepyzone.online/char-db-cn/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="m21 15-5-5L5 20"/></svg>Anime Outfit-Swap Library<svg class="ico ext" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
     </div>
   </div>
   <nav class="nav">
-    <button data-lib="face">脸库<b>1,499</b><i>张</i></button>
-    <button data-lib="pose">姿势库<b>288</b><i>个姿势 / 1,439 张</i></button>
-    <button data-lib="costume">服装库<b>1,407</b><i>套</i></button>
-    <button data-lib="combo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M21 3 13 11"/><path d="M8 21H3v-5"/><path d="M3 21l8-8"/><path d="M21 16v5h-5"/><path d="m21 21-4-4"/><path d="M3 8V3h5"/><path d="m3 3 4 4"/></svg>随机组合<i>一次抽齐脸 / 服装 / 姿势</i></button>
-    <div class="refmode" id="refModeSeg" role="group" aria-label="参考图形式">
-      <span class="refmode-label">参考图</span>
-      <button data-mode="line" class="on" aria-pressed="true">线稿</button>
+    <button data-lib="face">Faces<b>1,499</b><i>images</i></button>
+    <button data-lib="pose">Poses<b>288</b><i>poses / 1,439 images</i></button>
+    <button data-lib="costume">Outfits<b>1,407</b><i>sets</i></button>
+    <button data-lib="combo"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5"/><path d="M21 3 13 11"/><path d="M8 21H3v-5"/><path d="M3 21l8-8"/><path d="M21 16v5h-5"/><path d="m21 21-4-4"/><path d="M3 8V3h5"/><path d="m3 3 4 4"/></svg>Random combo<i>Draw a face / outfit / pose at once</i></button>
+    <div class="refmode" id="refModeSeg" role="group" aria-label="Reference type">
+      <span class="refmode-label">Reference</span>
+      <button data-mode="line" class="on" aria-pressed="true">Line art</button>
       <button data-mode="depth" aria-pressed="false">depth</button>
     </div>
   </nav>
@@ -65,50 +65,50 @@
 <main><div class="wrap"><div class="grid" id="grid"></div></div></main>
 
 <footer><div class="wrap">
-  <p class="foot-intro">三套参考素材的中文检索界面：脸定「她是谁」，姿势定「在做什么」，服装定「穿什么」。缩略图已内嵌，原图下载直达作者源站。</p>
+  <p class="foot-intro">An English search interface for three reference libraries: the face decides "who she is", the pose "what she is doing", the outfit "what she wears". Thumbnails are bundled; original downloads go straight to the author's source site.</p>
   <div class="links">
-    <a class="btn" href="https://ai-portrait-gallery.pages.dev/" target="_blank" rel="noopener">脸库源站 ↗</a>
-    <a class="btn" href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noopener">姿势库源站 ↗</a>
-    <a class="btn" href="https://ai-costume-gallery.pages.dev/" target="_blank" rel="noopener">服装库源站 ↗</a>
-    <a class="btn" href="https://x.com/giaaibusi" target="_blank" rel="noopener">作者 @giaaibusi ↗</a>
-    <a class="btn" href="https://github.com/sleepy-zone/ai-ref-library-cn" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    <a class="btn" href="https://ai-portrait-gallery.pages.dev/" target="_blank" rel="noopener">Faces source ↗</a>
+    <a class="btn" href="https://ai-pose-gallery.pages.dev/" target="_blank" rel="noopener">Poses source ↗</a>
+    <a class="btn" href="https://ai-costume-gallery.pages.dev/" target="_blank" rel="noopener">Outfits source ↗</a>
+    <a class="btn" href="https://x.com/giaaibusi" target="_blank" rel="noopener">Author @giaaibusi ↗</a>
+    <a class="btn" href="https://github.com/sleepy-zone/ai-ref-library-cn" target="_blank" rel="noopener">GitHub repo ↗</a>
   </div>
-  <b>素材来源</b>：AI 模特脸部数据库（CC0）、姿势数据库、服装数据库，作者 あぎ / ギア（@giaaibusi）。本仓库为中文检索界面，仅收录缩略图；原图请通过页面跳转至源站获取。<br>
-  <b>授权</b>：脸库 CC0；姿势库 / 服装库可免费商用与修改，但禁止再分发图片本体，禁止用于真人、未成年或违背公序良俗的用途。素材按原样提供，无担保。
+  <b>Source</b>: AI model face database (CC0), pose database and costume database by あぎ / ギア (@giaaibusi). This repo is an English search interface and contains thumbnails only; get the originals from the source sites via the links on the page.<br>
+  <b>License</b>: Faces are CC0; the Poses / Outfits libraries are free for commercial use and modification, but redistributing the image files themselves is prohibited, as is use involving real people, minors, or anything contrary to public order and morals. Materials are provided as-is, without warranty.
 </div></footer>
 
 <div class="modal" id="modal">
   <div class="mbox">
     <div class="mimg">
       <div class="mview" id="mMode" hidden>
-        <button data-mode="line">线稿</button>
+        <button data-mode="line">Line art</button>
         <button data-mode="depth">depth</button>
       </div>
       <img id="mimg" alt="">
-      <button class="nav-arrow l" id="mprev" aria-label="上一张">‹</button>
-      <button class="nav-arrow r" id="mnext" aria-label="下一张">›</button>
+      <button class="nav-arrow l" id="mprev" aria-label="Previous">‹</button>
+      <button class="nav-arrow r" id="mnext" aria-label="Next">›</button>
     </div>
     <aside class="mside">
-      <div class="mhead"><h2 id="mtitle"></h2><button class="close" id="mclose" aria-label="关闭" title="关闭（Esc）">×</button></div>
+      <div class="mhead"><h2 id="mtitle"></h2><button class="close" id="mclose" aria-label="Close" title="Close (Esc)">×</button></div>
       <dl class="kv" id="mfields"></dl>
       <div id="mextra"></div>
       <div class="acts">
-        <a id="mdl" href="#" target="_blank" rel="noopener" download>下载原图</a>
-        <a id="mdepth" class="ghost" href="#" target="_blank" rel="noopener" hidden>下载 depth（跳源站另存）↗</a>
-        <button id="mcopy">复制作图指令</button>
+        <a id="mdl" href="#" target="_blank" rel="noopener" download>Download original</a>
+        <a id="mdepth" class="ghost" href="#" target="_blank" rel="noopener" hidden>Download depth (opens source site) ↗</a>
+        <button id="mcopy">Copy prompt</button>
       </div>
       <div class="pan" id="mpan" hidden>
-        <span class="pan-label">整库原图（网盘）</span>
-        <a id="mPanBaidu" href="#" target="_blank" rel="sponsored noopener">百度网盘 ↗</a>
-        <a id="mPanQuark" href="#" target="_blank" rel="sponsored noopener">夸克网盘 ↗</a>
+        <span class="pan-label">Full originals (cloud drive)</span>
+        <a id="mPanBaidu" href="#" target="_blank" rel="sponsored noopener">Baidu Netdisk ↗</a>
+        <a id="mPanQuark" href="#" target="_blank" rel="sponsored noopener">Quark Drive ↗</a>
       </div>
-      <div class="keys"><kbd>←</kbd><kbd>→</kbd> 上一张 / 下一张（姿势库里为切换机位）· <kbd>Esc</kbd> 关闭<br>点大图可在新标签打开原图。</div>
+      <div class="keys"><kbd>←</kbd><kbd>→</kbd> previous / next (switches angle in the Poses library) · <kbd>Esc</kbd> close<br>Click the large image to open the original in a new tab.</div>
     </aside>
   </div>
 </div>
 
 <script src="config.js"></script>
 <script src="assets/analytics.js?v=27"></script>
-<script src="assets/app.js?v=29"></script>
+<script src="assets/app.js?v=30"></script>
 </body>
 </html>

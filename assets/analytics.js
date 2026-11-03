@@ -1,7 +1,7 @@
 /**
- * 轻量埋点层（无依赖，纯前端）
+ * Lightweight analytics layer (no dependencies, front-end only)
  *
- * 用法：在 config.js 里配置 window.ANALYTICS，可同时接多家：
+ * Usage: set window.ANALYTICS in config.js. Several providers can be enabled at once:
  *
  *   window.ANALYTICS = {
  *     providers: [
@@ -10,12 +10,12 @@
  *     ]
  *   };
  *
- * 也兼容老写法（只接一家）：
+ * The legacy single-provider form is also supported:
  *   window.ANALYTICS = { provider: "baidu", id: "xxxx" };
  *
- * 支持：ga4 / baidu / umami / clarity / cloudflare
- * 业务事件统一走 window.track(name, params)；无论是否配置平台，
- * 都会写入 window.__trackLog（最近 200 条）便于本地调试。
+ * Supported: ga4 / baidu / umami / clarity / cloudflare
+ * App events all go through window.track(name, params); whether or not a provider is configured,
+ * they are also written to window.__trackLog (latest 200 entries) for local debugging.
  */
 (function () {
   var cfg = window.ANALYTICS || {};
@@ -54,7 +54,7 @@
           }
         });
       }
-    } catch (e) { /* 埋点不能影响主流程 */ }
+    } catch (e) { /* analytics must never break the main flow */ }
   }
 
   window.track = function (name, params) {
@@ -75,7 +75,7 @@
   list.forEach(function (item) {
     var p = item.provider, id = item.id;
     if (!id) {
-      console.warn("[analytics]", p, "缺少 id，已跳过");
+      console.warn("[analytics]", p, "missing id, skipped");
       return;
     }
     if (p === "ga4") {
@@ -100,7 +100,7 @@
     } else if (p === "cloudflare") {
       addScript("https://static.cloudflareinsights.com/beacon.min.js", { "data-cf-beacon": JSON.stringify({ token: id }) });
     } else {
-      console.warn("[analytics] 未知 provider:", p);
+      console.warn("[analytics] unknown provider:", p);
     }
   });
 })();
