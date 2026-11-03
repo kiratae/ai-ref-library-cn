@@ -253,7 +253,7 @@ kbd{font-family:var(--mono);border:1px solid var(--line);border-radius:4px;paddi
 #promptText:focus{border-color:var(--ink);outline:none}
 .prompt-links{margin-top:10px;font-size:11.5px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
 
-/* ---------- 赞赏卡（旧样式占位） ---------- */
+/* ---------- Tip card (legacy placeholder styles) ---------- */
 .tip{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:14px}
 .tip-qr img{display:block;width:132px;height:132px;border-radius:var(--r-md);border:1px solid var(--line)}
 .tip-txt b{font-size:13.5px}

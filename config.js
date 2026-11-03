@@ -1,31 +1,35 @@
 /**
- * 本地原图目录（可选）。
+ * Local originals directory (optional).
  *
- * 留空字符串 = 不使用本地原图，弹窗大图与「下载原图」都会直接走作者源站。
- * 填了路径 = 优先读本地原图（快、离线可用），读不到自动回退源站。
+ * Empty string = don't use local originals; the modal image and "Download original"
+ * go straight to the author's source site.
+ * A path = local originals are read first (fast, works offline), falling back to
+ * the source site automatically if they can't be read.
  *
- * 仓库里默认填的是作者本机的相对路径，别人克隆后这些目录不存在，
- * 会自动、无感地回退到源站下载，不影响使用。
+ * The defaults in this repo are relative paths on the original author's machine.
+ * After cloning, those folders won't exist,
+ * so the site silently falls back to downloading from the source site — nothing breaks.
  *
- * 想改成自己的路径，直接把下面三项换成对应目录即可（结尾要有 /）。
+ * To use your own paths, replace the three entries below (keep the trailing /).
  */
 window.LOCAL_ORIGINALS = {
-  face: "../脸库中文版/originals/",
-  pose: "../姿势库中文版/originals/",
-  costume: "../服装库中文版/originals/"
+  face: "../face-library/originals/",
+  pose: "../pose-library/originals/",
+  costume: "../costume-library/originals/"
 };
 
 /**
- * 埋点配置（可选，填了才会上报）。可以同时接多家：
+ * Analytics config (optional — nothing is reported unless filled in).
+ * Several providers can be enabled at once:
  *
- * provider 取值：
- *   "ga4"         → Google Analytics 4，id 形如 G-XXXXXXXXXX
- *   "baidu"       → 百度统计，id 是 hm.js? 后面那串
- *   "umami"       → Umami Cloud，id 是 website-id
- *   "clarity"     → Microsoft Clarity，id 是项目 ID（设置 → 概览里的那串）
- *   "cloudflare"  → Cloudflare Web Analytics，id 是 beacon token（只统计 PV，无自定义事件）
+ * provider values:
+ *   "ga4"         → Google Analytics 4, id looks like G-XXXXXXXXXX
+ *   "baidu"       → Baidu Tongji, id is the string after hm.js?
+ *   "umami"       → Umami Cloud, id is the website-id
+ *   "clarity"     → Microsoft Clarity, id is the project ID (Settings → Overview)
+ *   "cloudflare"  → Cloudflare Web Analytics, id is the beacon token (page views only, no custom events)
  *
- * 示例（同时开 Clarity 会话录制 + GA4 事件统计）：
+ * Example (Clarity session recording + GA4 event stats together):
  *   window.ANALYTICS = {
  *     providers: [
  *       { provider: "clarity", id: "abcdefghij" },
@@ -33,22 +37,25 @@ window.LOCAL_ORIGINALS = {
  *     ]
  *   };
  *
- * 留空 / 不写 providers = 完全关闭，只写本地 window.__trackLog，不发任何请求。
+ * Empty / no providers = fully disabled: events are only written to the local
+ * window.__trackLog and no requests are sent.
  *
- * 调试：控制台执行 window.__trackDebug = true 后刷新，可看到每条事件；
- *      window.__trackLog 里始终保留最近 200 条。
+ * Debugging: run window.__trackDebug = true in the console and reload to see
+ * every event;
+ *      window.__trackLog always keeps the latest 200.
  */
 window.ANALYTICS = {
   providers: [
     { provider: "ga4", id: "G-0C99160522" },
     { provider: "clarity", id: "r1wmvdsf4a" }
-    // { provider: "baidu", id: "你的百度统计 id" }
+    // { provider: "baidu", id: "your Baidu Tongji id" }
   ]
 };
 
 /**
- * 整库原图的网盘（可选）。留空字符串 = 不显示该入口。
- * 想换推广链接，直接改这里，不用动 app.js。
+ * Cloud-drive links for the full original libraries (optional).
+ * Empty string = hide that entry.
+ * To change the links, edit them here — no need to touch app.js.
  */
 window.PAN_LINKS = {
   face:    { baidu: "https://pan.baidu.com/s/1rxqVp0qkxCQf-8Z8DXI6HA?pwd=jR2P", quark: "https://pan.quark.cn/s/469084c4f0fa" },

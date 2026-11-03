@@ -1,99 +1,101 @@
-# AI 作图素材库 · 中文版（脸 / 姿势 / 服装）
+# AI Reference Library · English Edition (Faces / Poses / Outfits)
 
 <img width="2404" height="1728" alt="Image" src="https://github.com/user-attachments/assets/6a53ac45-4c89-48fd-a7b4-2e6788a5294a" />
 
-基于 **あぎ / ギア（[@giaaibusi](https://x.com/giaaibusi)）** 公开的三套 AI 作图参考素材的中文版网站。
+An English-language website for the three public AI image-generation reference libraries published by **あぎ / ギア ([@giaaibusi](https://x.com/giaaibusi))**. It is a translation of the Chinese edition, [ai-ref-library-cn](https://sleepyzone.online/ai-ref-library-cn/).
 
-* 分类与标签全部译成中文
-* 中英双语搜索
-* 一键复制作图指令
-* 三库统一入口，姿势库已支持 depth
-* **随机组合生成提示词**。
+* All categories and tags are translated into English
+* Search by English name or Japanese name
+* One-click copy of the image-generation prompt
+* One entry point for all three libraries; the Poses library supports depth maps
+* **Random combos that generate a prompt for you.**
 
-**在线访问**：<https://sleepyzone.online/ai-ref-library-cn/>
+**Live site (Chinese edition)**: <https://sleepyzone.online/ai-ref-library-cn/>
 
-## 目录
+## Contents
 
-- [随机组合](#随机组合)：一次抽齐脸 / 服装 / 姿势，并生成提示词
-  - [两种参考图形式](#两种参考图形式)：链接版 vs 单张三联图
-- [本地开发](#本地开发)
-- [原图下载](#原图下载)
-- [埋点](#埋点)
-- [授权](#授权)
-- [免责](#免责)
+- [Random combo](#random-combo): draw a face / outfit / pose at once and generate a prompt
+  - [Two reference-image modes](#two-reference-image-modes): links vs. a single 3-panel sheet
+- [Local development](#local-development)
+- [Original image downloads](#original-image-downloads)
+- [Analytics](#analytics)
+- [License](#license)
+- [Disclaimer](#disclaimer)
 
-## 随机组合
+## Random combo
 
-点顶部 **🎲 随机组合**：从脸库、服装库、姿势库各随机抽一条，三张参考图并排，并自动生成现成的提示词。
+Click **Random combo** at the top: one entry is drawn at random from each of the Faces, Outfits and Poses libraries, the three reference images are shown side by side, and a ready-to-use prompt is generated.
 
-- **单独「换一个」**：只换某一张，另外两张不动，方便先定脸再挑衣服
-- **限定范围**：姿势可只取标准系 / 上半身 / 双人互动，服装可只取春 / 夏 / 秋 / 冬 / 内衣 / 派对 / 泳装 / 性感
+- **Reroll individually**: swap just one of the three and leave the others alone — handy for locking in a face first and then choosing clothes
+- **Limit the range**: poses can be restricted to Standard / Upper body / Two-person, and outfits to Spring / Summer / Autumn / Winter / Lingerie / Party / Swimwear / Sexy
 
-### 两种参考图形式
+### Two reference-image modes
 
-| 模式 | 适用场景 | 你能拿到什么 |
+| Mode | Best for | What you get |
 | --- | --- | --- |
-| **参考图 = 链接** | 能联网取图的 Agent（Claude / GPT + 浏览器工具 / 有 shell 的编码 Agent） | 提示词里带三张图的源站直链 + curl 取图命令，开头写明「先取图、不许凭描述生成」 |
-| **参考图 = 一张三联图** | 只能贴图、不能读 URL 的模型（多数对话式图像模型） | 一键生成 2828×1380 的三联参考图（左①脸 / 中②服装 / 右③姿势，带编号标注），可下载或直接复制到剪贴板 |
+| **Reference = links** | Agents that can fetch images from the web (Claude / GPT with browsing tools / coding agents with a shell) | A prompt containing direct source-site links to the three images plus curl fetch commands, opening with "fetch the images first — do not generate from the description alone" |
+| **Reference = one 3-panel sheet** | Models that only accept pasted images and can't read URLs (most chat-style image models) | A one-click 2828×1380 3-panel reference sheet (left ① face / middle ② outfit / right ③ pose, with numbered labels) that you can download or copy straight to the clipboard |
 
 <img width="1574" height="1628" alt="Image" src="https://github.com/user-attachments/assets/a698df0d-9fc6-48c2-a824-086736eb2e72" />
 
 <img width="1620" height="1854" alt="Image" src="https://github.com/user-attachments/assets/17454dd8-3e23-47cc-8f6c-f3607bf7df6b" />
 
-## 本地开发
+## Local development
 
     python3 -m http.server 8080
 
-然后访问 http://localhost:8080
+Then open http://localhost:8080
 
-## 原图下载
+## Original image downloads
 
-注：仅用于本地预览高清图
+Note: for previewing high-resolution images locally only.
 
-**AI 作图脸库**
+**AI face library**
 
 [https://pan.baidu.com/s/1rxqVp0qkxCQf-8Z8DXI6HA?pwd=jR2P](https://pan.baidu.com/s/1rxqVp0qkxCQf-8Z8DXI6HA?pwd=jR2P)
 
 [https://pan.quark.cn/s/469084c4f0fa](https://pan.quark.cn/s/469084c4f0fa)
 
-**AI 服装库**
+**AI outfit library**
 
 [https://pan.baidu.com/s/1bsGuveiCBRbucS-17tpTrg?pwd=s39e](https://pan.baidu.com/s/1bsGuveiCBRbucS-17tpTrg?pwd=s39e)
 
 [https://pan.quark.cn/s/492b9782ab78](https://pan.quark.cn/s/492b9782ab78)
 
-**AI 作图姿势库**
+**AI pose library**
 
 [https://pan.quark.cn/s/6b1004add615](https://pan.quark.cn/s/6b1004add615)
 
 [https://pan.baidu.com/s/1rY8E88d19xabnoBGhex4zg?pwd=vsf6](https://pan.baidu.com/s/1rY8E88d19xabnoBGhex4zg?pwd=vsf6)
 
-## 埋点
+(Baidu Netdisk and Quark Drive are Chinese cloud services; the per-image "Download original" buttons on the site go to the author's source sites instead.)
 
-**本站当前已开启：GA4 `G-0C99160522` + Microsoft Clarity `r1wmvdsf4a`。**
+## Analytics
 
-## 授权
+**Currently enabled on this site: GA4 `G-0C99160522` + Microsoft Clarity `r1wmvdsf4a`.**
 
-| 库 | 授权 | 能否再分发图片 |
+## License
+
+| Library | License | Can images be redistributed? |
 | --- | --- | --- |
-| 脸库 | **CC0**（放弃著作权） | ✅ 可以 |
-| 姿势库 | 免费商用、可修改、可参考 | ❌ 禁止再分发图片本体（含改过的版本） |
-| 服装库 | 同上 | ❌ 禁止再分发图片本体 |
+| Faces | **CC0** (copyright waived) | ✅ Yes |
+| Poses | Free for commercial use, modification and reference | ❌ No redistribution of the image files themselves (including modified versions) |
+| Outfits | Same as above | ❌ No redistribution of the image files themselves |
 
-- 三个库都**不涉及真实人物**（全部 AI 生成）
-- 服装库作者做过品牌相似度检查，但**不保证不侵权**，商用前请自行判断
-- 本仓库只收录缩略图用于检索，原图请走源站下载；**请勿把原图打包再分发**
+- None of the three libraries involve real people (everything is AI-generated)
+- The outfit library's author ran brand-similarity checks but **does not guarantee non-infringement** — use your own judgment before commercial use
+- This repo only includes thumbnails for search; download originals from the source sites, and **do not bundle and redistribute the originals**
 
-| 库 | 内容 | 数量 | 源站 |
+| Library | Content | Count | Source site |
 | --- | --- | --- | --- |
-| 脸库 | 正面向、纯色背景的头部参考（脸部特写 893 / 造型 606） | 1,499 张 | <https://ai-portrait-gallery.pages.dev/> |
-| 姿势库 | 无脸灰色人偶线稿，每姿势 5 个机位 | 288 姿势 / 1,439 图 | <https://ai-pose-gallery.pages.dev/> |
-| 服装库 | 无人物、只有服装的参考图（8 个分类） | 1,407 套 | <https://ai-costume-gallery.pages.dev/> |
+| Faces | Front-facing head references on plain backgrounds (face close-ups 893 / styled 606) | 1,499 images | <https://ai-portrait-gallery.pages.dev/> |
+| Poses | Faceless grey mannequin line drawings, 5 camera angles per pose | 288 poses / 1,439 images | <https://ai-pose-gallery.pages.dev/> |
+| Outfits | Clothing-only references with no person (8 categories) | 1,407 sets | <https://ai-costume-gallery.pages.dev/> |
 
-## 免责
+## Disclaimer
 
-素材版权归原作者所有，本仓库仅为个人使用的中文检索界面，按原样提供、无担保。
+Copyright of the materials belongs to the original author. This repo is a personal-use English search interface, provided as-is without warranty.
 
 ---
 
-[↑ 回到目录](#目录)
+[↑ Back to contents](#contents)
